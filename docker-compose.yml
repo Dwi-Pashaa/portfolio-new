@@ -1,0 +1,26 @@
+services:
+  # Local Development Service with Live Reload & Hot Module Replacement
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: dwipasha-portfolio-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    restart: unless-stopped
+
+  # Production Service with Nginx
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dwipasha-portfolio-prod
+    ports:
+      - "8080:80"
+    restart: unless-stopped
