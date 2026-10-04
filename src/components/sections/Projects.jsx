@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, BookOpen, Quote, Sparkles, Eye, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { SectionHeader } from '../common/SectionHeader';
-import { BrutalistButton } from '../common/BrutalistButton';
-import { PillBadge } from '../common/PillBadge';
 import { ProjectModal } from '../common/ProjectModal';
 import { useLanguage } from '../../context/LanguageContext';
 import { portfolioData } from '../../data/portfolioData';
@@ -11,6 +9,7 @@ export const Projects = () => {
   const { language, t } = useLanguage();
   const [filter, setFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
   const filterOptions = [
     { id: 'all', label: t('projects.filterAll') },
@@ -24,130 +23,127 @@ export const Projects = () => {
     return project.category === filter;
   });
 
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
+
   return (
-    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-surface border-t-[3px] border-slate-900">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t-2 border-ink">
+      <div className="max-w-[1100px] mx-auto">
         
         {/* Section Header */}
         <SectionHeader
-          tag={t('projects.sectionTag')}
           title={t('projects.sectionTitle')}
-          highlight="Showcase"
           subtitle={t('projects.sectionSubtitle')}
           align="center"
         />
 
-        {/* Category Filter Tabs (With Horizontal Scroll Snap on Mobile) */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
-          {filterOptions.map((opt) => (
-            <button
-              key={opt.id}
-              type="button"
-              onClick={() => setFilter(opt.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-display font-black uppercase tracking-wider border-[2.5px] border-slate-900 transition-all shrink-0 cursor-pointer ${
-                filter === opt.id
-                  ? 'bg-accent-yellow text-slate-900 shadow-brutal translate-x-[-1px] translate-y-[-1px]'
-                  : 'bg-slate-100 text-slate-600 hover:bg-white hover:text-slate-900 shadow-brutal-sm'
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
+        {/* Responsive Clean Aligned Segmented Tab Filters */}
+        <div className="flex justify-center mb-10 px-2">
+          <div className="flex flex-wrap sm:inline-flex items-center justify-center gap-1.5 p-1.5 bg-surface border-2 border-ink rounded-xl shadow-brutal max-w-full">
+            {filterOptions.map((opt) => {
+              const isActive = filter === opt.id;
+              return (
+                <button
+                  key={opt.id}
+                  type="button"
+                  onClick={() => setFilter(opt.id)}
+                  className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-display font-bold transition-all whitespace-nowrap cursor-pointer ${
+                    isActive
+                      ? 'bg-accent text-ink border-2 border-ink shadow-[2px_2px_0_#111111]'
+                      : 'bg-transparent text-muted hover:text-ink hover:bg-bg border-2 border-transparent'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Projects 6-Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProjects.map((project) => {
+        {/* Projects 2-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {displayedProjects.map((project) => {
             const title = typeof project.title === 'object' ? project.title[language] : project.title;
             const summary = typeof project.summary === 'object' ? project.summary[language] : project.summary;
+
+            const categoryBadgeColor = 
+              project.category === 'ai' ? 'bg-accent-coral-light' :
+              project.category === 'web' ? 'bg-brand-blue-light' :
+              project.category === 'edtech' ? 'bg-accent-mint-light' : 'bg-accent-yellow-light';
 
             return (
               <div
                 key={project.id}
-                className="bg-white border-[3.5px] border-slate-900 rounded-3xl p-6 shadow-brutal hover:shadow-brutal-xl transition-all duration-200 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-surface border-2 border-ink rounded-xl p-6 shadow-brutal flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-brutal-hover transition-all"
               >
                 <div>
-                  {/* Top Bar with Badge & Year */}
-                  <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b-2 border-slate-900">
-                    <PillBadge color={project.badgeColor || 'bg-brand-blue text-white'} size="sm">
+                  {/* Meta row: category badge + year */}
+                  <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b-2 border-ink">
+                    <span className={`inline-block px-3 py-0.5 rounded-full border-2 border-ink text-xs font-display font-bold text-ink ${categoryBadgeColor}`}>
                       {project.categoryLabel}
-                    </PillBadge>
-                    <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-900">
+                    </span>
+                    <span className="text-xs font-mono font-bold text-ink bg-bg px-2.5 py-0.5 rounded border-2 border-ink shadow-[1px_1px_0_#111111]">
                       {project.year}
                     </span>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="font-display font-black text-xl text-slate-900 leading-tight mb-3 group-hover:text-brand-blue transition-colors">
+                  {/* Title (H3) */}
+                  <h3 className="font-display font-black text-xl text-ink leading-snug mb-2">
                     {title}
                   </h3>
 
-                  {/* Summary */}
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-5 line-clamp-3">
+                  {/* Description (max 2-3 lines) */}
+                  <p className="text-sm text-muted font-normal leading-relaxed line-clamp-3 mb-4">
                     {summary}
                   </p>
 
-                  {/* Tech Badges */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
+                  {/* Tech stack chip text (max 4) */}
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tech.slice(0, 4).map((techItem, techIdx) => (
                       <span
                         key={techIdx}
-                        className="px-2.5 py-0.5 text-[11px] font-mono font-bold bg-slate-100 text-slate-800 border border-slate-900 rounded-md"
+                        className="border-2 border-ink rounded-full px-2.5 py-0.5 text-xs sm:text-sm font-mono font-semibold bg-bg text-ink shadow-[1px_1px_0_#111111]"
                       >
                         {techItem}
                       </span>
                     ))}
                     {project.tech.length > 4 && (
-                      <span className="px-2 py-0.5 text-[11px] font-mono font-bold text-slate-500">
+                      <span className="text-xs sm:text-sm font-mono text-muted self-center">
                         +{project.tech.length - 4}
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Bottom Card Actions */}
-                <div className="pt-4 border-t-2 border-slate-900 flex items-center justify-between gap-2">
+                {/* Bottom: Text Link "Lihat detail →" */}
+                <div className="pt-3 border-t-2 border-ink">
                   <button
                     type="button"
                     onClick={() => setSelectedProject(project)}
-                    className="inline-flex items-center gap-1.5 text-xs font-display font-black uppercase text-slate-900 hover:text-brand-blue transition-colors"
+                    className="inline-flex items-center gap-1.5 text-sm font-display font-bold text-ink hover:text-brand-blue hover:underline transition-colors cursor-pointer"
                   >
-                    <Eye className="w-4 h-4" />
                     <span>{t('projects.viewDetails')}</span>
+                    <ArrowRight className="w-4 h-4 text-brand-blue" />
                   </button>
-
-                  <div className="flex items-center gap-2">
-                    {project.links.demo && (
-                      <a
-                        href={project.links.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-xl bg-accent-yellow border-2 border-slate-900 shadow-[2px_2px_0px_#0F172A] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all text-slate-900"
-                        title="Live Demo"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-
-                    {project.links.paper && (
-                      <a
-                        href={project.links.paper}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-xl bg-brand-blue border-2 border-slate-900 shadow-[2px_2px_0px_#0F172A] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all text-white"
-                        title="View Paper on Google Scholar"
-                      >
-                        <BookOpen className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Citation & Project Modal */}
+        {/* View All / Show Less Button if > 6 projects */}
+        {filteredProjects.length > 6 && (
+          <div className="mt-10 text-center">
+            <button
+              type="button"
+              onClick={() => setShowAll(!showAll)}
+              className="btn btn--outline text-sm font-bold"
+            >
+              {showAll ? (language === 'id' ? 'Tampilkan Lebih Sedikit' : 'Show Less') : (language === 'id' ? 'Lihat Semua Proyek' : 'View All Projects')}
+            </button>
+          </div>
+        )}
+
+        {/* Project Modal */}
         <ProjectModal
           project={selectedProject}
           isOpen={!!selectedProject}
@@ -158,3 +154,4 @@ export const Projects = () => {
     </section>
   );
 };
+

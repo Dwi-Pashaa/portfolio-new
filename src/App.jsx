@@ -11,38 +11,39 @@ import { Footer } from './components/sections/Footer';
 
 export function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-canvas text-ink font-body selection:bg-accent-yellow selection:text-ink">
+    <div className="min-h-screen flex flex-col bg-bg text-ink font-body selection:bg-accent selection:text-ink">
       {/* Sticky Header Navigation */}
       <Navbar />
 
       {/* Main Content Sections */}
       <main className="flex-grow">
-        {/* Section 2: Hero Section (Sweepy Inspired) */}
+        {/* Section 1: Hero */}
         <Hero />
 
-        {/* Section 3: About Me (Interactive Developer Terminal) */}
+        {/* Section 2: Latar Belakang / Tentang Saya */}
         <AboutMe />
 
-        {/* Section 4: Skills Matrix (Bento Grid) */}
-        <Skills />
-
-        {/* Section 5: Projects & Publications Showcase */}
-        <Projects />
-
-        {/* Section 6: Experience & Education Timeline */}
+        {/* Section 3: Pengalaman & Pendidikan */}
         <Experience />
 
-        {/* Section 7: Journal Publications & Books */}
+        {/* Section 4: Proyek & Portfolio */}
+        <Projects />
+
+        {/* Section 5: Publikasi Jurnal & Buku */}
         <Journals />
 
-        {/* Section 8: Interactive Contact Section */}
+        {/* Section 6: Keahlian, Tools & Minat Karir */}
+        <Skills />
+
+        {/* Section 7: Hubungi Saya */}
         <Contact />
       </main>
 
-      {/* Section 9: Footer with Marquee Banner */}
+      {/* Section 8: Footer */}
       <Footer />
     </div>
   );
 }
 
 export default App;
+

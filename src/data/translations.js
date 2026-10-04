@@ -4,24 +4,25 @@ export const translations = {
       home: "Beranda",
       about: "Tentang",
       skills: "Keahlian",
-      projects: "Proyek & Riset",
+      projects: "Proyek",
       experience: "Pengalaman",
-      journals: "Jurnal & Publikasi",
+      journals: "Publikasi",
       contact: "Kontak",
       downloadCv: "Download CV",
       getInTouch: "Hubungi Saya",
     },
     hero: {
-      tag: "PORTFOLIO RESMI & RISET",
-      role: "Fullstack Developer | AI Engineer | IT Support",
-      headlinePrefix: "Membangun Sistem",
-      headlineHighlight: "Cerdas & Arsitektur",
-      headlineSuffix: "Web Skalabel.",
-      description: "Menghubungkan rekayasa Agentic AI & model Machine Learning dengan arsitektur web modern, integrasi enterprise, dan keandalan operasional IT yang solid.",
-      ctaProjects: "Lihat Portfolio & Riset",
-      ctaContact: "Diskusi & Kolaborasi",
+      tag: "PORTFOLIO & RISET",
+      role: "Software Engineer",
+      headlinePrefix: "Halo, saya Pasha",
+      headlineHighlight: "Software Engineer",
+      headlineSuffix: "& AI Solutions.",
+      description:
+        "Software Engineer dengan latar belakang IT Support, berdedikasi membangun arsitektur web yang terukur, integrasi Agentic AI, dan operasional IT yang andal.",
+      ctaProjects: "Lihat Portfolio",
+      ctaContact: "Hubungi Saya",
       ctaCv: "Download CV",
-      statusBadge: "Tersedia untuk Peluang & Kolaborasi",
+      statusBadge: "Terbuka untuk Peluang & Kolaborasi",
       statCitations: "Kutipan Google Scholar",
       statProjects: "Proyek & Publikasi",
       statSatisfaction: "Keandalan Arsitektur",
@@ -30,7 +31,8 @@ export const translations = {
     about: {
       sectionTag: "DEVELOPER CONSOLE",
       sectionTitle: "Tentang Saya",
-      sectionSubtitle: "Mengenal latar belakang, filosofi engineering, dan pendekatan holistik saya.",
+      sectionSubtitle:
+        "Mengenal latar belakang, filosofi engineering, dan pendekatan holistik saya.",
       terminalTitle: "zsh - pasha@dwipasha-dev: ~/about-me",
       copyOutput: "Salin Output",
       copied: "Tersalin!",
@@ -41,33 +43,40 @@ export const translations = {
       coreDomainsVal: "Agentic AI ✦ Web ✦ IT Ops",
       card1Title: "Pendidikan & Kampus",
       card1Sub: "Latar Belakang Akademik",
-      card1Desc: "Mahasiswa aktif S1 Sistem Informasi Universitas Catur Insan Cendekia (UCIC) & Alumni MAN 4 Cirebon.",
+      card1Desc:
+        "Mahasiswa aktif S1 Sistem Informasi Universitas Catur Insan Cendekia (UCIC) & Alumni MAN 4 Cirebon.",
       card2Title: "Penulis Buku Ilmiah",
       card2Sub: "Sonpedia Publishing 2025",
-      card2Desc: "Penulis buku referensi \"Machine Learning Untuk Pendidikan STEM: Model Adaptif Di Sekolah Alternatif\" terindeks Google Scholar.",
+      card2Desc:
+        'Penulis buku referensi "Machine Learning Untuk Pendidikan STEM: Model Adaptif Di Sekolah Alternatif" terindeks Google Scholar.',
       card3Title: "Keahlian Lintas Disiplin",
       card3Sub: "Pengiriman Siklus Lengkap",
-      card3Desc: "Mampu mengelola siklus dari penulisan kode aplikasi, perancangan model cerdas AI, hingga pemeliharaan infrastruktur jaringan lapangan (Pertamina & KAI).",
+      card3Desc:
+        "Mampu mengelola siklus dari penulisan kode aplikasi, perancangan model cerdas AI, hingga pemeliharaan infrastruktur jaringan lapangan (Pertamina & KAI).",
       card4Title: "Riset & Publikasi Ilmiah",
       card4Sub: "Google Scholar Verified",
-      card4Desc: "Aktif menerbitkan karya ilmiah terindeks (4+ sitasi) pada jurnal internasional, studi kasus Zachman Framework, dan analitik cerdas jaringan.",
+      card4Desc:
+        "Aktif menerbitkan karya ilmiah terindeks (4+ sitasi) pada jurnal internasional, studi kasus Zachman Framework, dan analitik cerdas jaringan.",
     },
     skills: {
       sectionTag: "TECH STACK & MATRIX",
-      sectionTitle: "Keahlian & Teknologi",
-      sectionSubtitle: "Peralatan, kerangka kerja, dan spesialisasi teknis yang saya gunakan secara profesional.",
-      catAi: "Agentic AI & Deep Learning",
-      catFullstack: "Full-Stack Web & Mobile",
+      sectionTitle: "Keahlian & Minat Karir",
+      sectionSubtitle:
+        "Spesialisasi teknis, alat pengembangan, dan fokus karir profesional yang saya kuasai.",
+      careerInterestTitle: "Minat Karir (Career Interest)",
+      catAi: "Machine Learning & Agentic AI",
+      catFullstack: "Technical Skills (Fullstack & Backend)",
       catArch: "Database & Arsitektur Sistem",
       catSupport: "IT Support & Network Engineering",
-      catTools: "UI/UX, Workflow & Research Tools",
+      catTools: "Development Tools & Workflow",
       flagshipBadge: "Sistem Unggulan: Ayunda AI (Multi-Agent + LSTM)",
       capabilitiesCount: "Keahlian Terarah",
     },
     projects: {
       sectionTag: "SHOWCASE KARYA & RISET",
       sectionTitle: "Proyek & Portfolio",
-      sectionSubtitle: "Pilihan proyek software engineering, model AI mutakhir, dan implementasi aplikasi web nyata.",
+      sectionSubtitle:
+        "Pilihan proyek software engineering, model AI mutakhir, dan implementasi aplikasi web nyata.",
       filterAll: "Semua Kategori",
       filterAi: "Agentic AI & ML",
       filterWeb: "Fullstack & Enterprise",
@@ -82,7 +91,8 @@ export const translations = {
     experience: {
       sectionTag: "PERJALANAN PROFESIONAL",
       sectionTitle: "Pengalaman & Edukasi",
-      sectionSubtitle: "Rekam jejak kerja nyata, peran teknis lapangan, magang industri, dan pencapaian akademik.",
+      sectionSubtitle:
+        "Rekam jejak kerja nyata, peran teknis lapangan, magang industri, dan pencapaian akademik.",
       tabWork: "Pengalaman Kerja & Magang",
       tabEdu: "Pendidikan & Akademik",
       present: "Saat ini",
@@ -92,7 +102,8 @@ export const translations = {
     journals: {
       sectionTag: "KARYA ILMIAH & RISET",
       sectionTitle: "Publikasi Jurnal & Buku",
-      sectionSubtitle: "Daftar karya ilmiah, jurnal akademik, dan buku referensi yang telah dipublikasikan serta terindeks di Google Scholar.",
+      sectionSubtitle:
+        "Daftar karya ilmiah, jurnal akademik, dan buku referensi yang telah dipublikasikan serta terindeks di Google Scholar.",
       citedCount: "Kutipan",
       viewOnScholar: "Lihat di Google Scholar",
       viewPublisher: "Buka Penerbit",
@@ -109,7 +120,8 @@ export const translations = {
     contact: {
       sectionTag: "MARI TERHUBUNG",
       sectionTitle: "Hubungi Saya",
-      sectionSubtitle: "Tertarik berkolaborasi, mendiskusikan peluang karir, atau membangun sistem baru? Kirimkan pesan Anda!",
+      sectionSubtitle:
+        "Tertarik berkolaborasi, mendiskusikan peluang karir, atau membangun sistem baru? Kirimkan pesan Anda!",
       directContactTitle: "Saluran Kontak Langsung",
       formTitle: "Kirim Pesan Cepat",
       nameLabel: "Nama Lengkap",
@@ -124,14 +136,17 @@ export const translations = {
       optSupport: "IT Support & Network Engineering",
       optOther: "Peluang Kerja / Kolaborasi Riset Lainnya",
       messageLabel: "Pesan / Keterangan",
-      messagePlaceholder: "Tuliskan detail proyek, pertanyaan, atau penawaran Anda...",
+      messagePlaceholder:
+        "Tuliskan detail proyek, pertanyaan, atau penawaran Anda...",
       submitBtn: "Kirimkan Pesan Sekarang",
       submitting: "Mengirimkan Pesan...",
       successTitle: "Pesan Berhasil Terkirim!",
-      successDesc: "Terima kasih telah menghubungi. Saya akan segera membalas email Anda.",
+      successDesc:
+        "Terima kasih telah menghubungi. Saya akan segera membalas email Anda.",
       sendAnother: "Kirim Pesan Lainnya",
       location: "Cirebon, Jawa Barat, Indonesia",
-      statusNote: "Terbuka untuk proyek kontrak, rekayasa web fullstack, riset AI engineering, dan konsultasi sistem enterprise.",
+      statusNote:
+        "Terbuka untuk proyek kontrak, rekayasa web fullstack, riset AI engineering, dan konsultasi sistem enterprise.",
     },
     modal: {
       abstractTitle: "Abstrak & Ringkasan Solusi",
@@ -143,12 +158,14 @@ export const translations = {
       closeBtn: "Tutup Modal",
     },
     footer: {
-      ticker: "✦ AGENTIC AI ✦ FULLSTACK DEVELOPER ✦ REINFORCEMENT LEARNING ✦ ZACHMAN FRAMEWORK ✦ LARAVEL & REACT ✦ IT SUPPORT & NETWORK ✦ UCIC CIREBON ✦",
-      bio: "Dwi Pasha Anggara Putra — Fullstack Developer & AI Engineer. Merajut solusi cerdas antara kode, model Machine Learning, dan keandalan sistem operasional IT.",
+      ticker:
+        "✦ AGENTIC AI ✦ FULLSTACK DEVELOPER ✦ REINFORCEMENT LEARNING ✦ ZACHMAN FRAMEWORK ✦ LARAVEL & REACT ✦ IT SUPPORT & NETWORK ✦ UCIC CIREBON ✦",
+      bio: "Dwi Pasha Anggara Putra — Software Engineer. Merancang arsitektur web yang terukur, integrasi sistem cerdas Machine Learning, dan keandalan operasional IT.",
       rights: "Hak Cipta Dilindungi.",
-      builtWith: "Didesain dengan gaya Neo-Brutalism menggunakan React, Tailwind CSS & Docker.",
+      builtWith:
+        "Didesain dengan gaya Neo-Brutalism menggunakan React, Tailwind CSS & Docker.",
       backToTop: "Kembali ke Atas",
-    }
+    },
   },
   en: {
     nav: {
@@ -157,22 +174,23 @@ export const translations = {
       skills: "Skills",
       projects: "Projects",
       experience: "Experience",
-      journals: "Journals & Papers",
+      journals: "Publications",
       contact: "Contact",
       downloadCv: "Download CV",
       getInTouch: "Get In Touch",
     },
     hero: {
-      tag: "OFFICIAL PORTFOLIO & RESEARCH",
-      role: "Fullstack Developer | AI Engineer | IT Support",
-      headlinePrefix: "Architecting",
-      headlineHighlight: "Intelligent Systems",
-      headlineSuffix: "& Scalable Web.",
-      description: "Bridging Agentic AI and deep learning models with modern web architecture, enterprise integrations, and reliable, mission-critical IT infrastructure.",
-      ctaProjects: "Explore Projects & Papers",
-      ctaContact: "Let's Collaborate",
+      tag: "PORTFOLIO & RESEARCH",
+      role: "Software Engineer",
+      headlinePrefix: "Hi, I'm Pasha",
+      headlineHighlight: "Software Engineer",
+      headlineSuffix: "& AI Solutions.",
+      description:
+        "Software Engineer with a background in IT Support, dedicated to building scalable web architecture, Agentic AI integrations, and reliable IT operations.",
+      ctaProjects: "View Portfolio",
+      ctaContact: "Get in Touch",
       ctaCv: "Download CV",
-      statusBadge: "Available for Opportunities & Research",
+      statusBadge: "Open for Opportunities & Collaboration",
       statCitations: "Google Scholar Citations",
       statProjects: "Projects & Publications",
       statSatisfaction: "Architectural Integrity",
@@ -181,44 +199,53 @@ export const translations = {
     about: {
       sectionTag: "DEVELOPER CONSOLE",
       sectionTitle: "About Me",
-      sectionSubtitle: "Exploring my background, engineering philosophy, and cross-disciplinary approach.",
+      sectionSubtitle:
+        "Exploring my background, engineering philosophy, and cross-disciplinary approach.",
       terminalTitle: "zsh - pasha@dwipasha-dev: ~/about-me",
       copyOutput: "Copy Output",
       copied: "Copied!",
       commandPrompt: "cat about_me_en.txt",
-      statusCheck: "Status: Available for Fullstack, AI & IT Support Opportunities",
+      statusCheck:
+        "Status: Available for Fullstack, AI & IT Support Opportunities",
       statusAvailable: "Available for Fullstack & AI",
       coreDomainsLabel: "CORE DOMAINS:",
       coreDomainsVal: "Agentic AI ✦ Web ✦ IT Ops",
       card1Title: "Education & Alma Mater",
       card1Sub: "Academic Background",
-      card1Desc: "Active undergraduate student in Information Systems at Universitas Catur Insan Cendekia (UCIC) & MAN 4 Cirebon Alum.",
+      card1Desc:
+        "Active undergraduate student in Information Systems at Universitas Catur Insan Cendekia (UCIC) & MAN 4 Cirebon Alum.",
       card2Title: "Published Author",
       card2Sub: "Sonpedia Publishing 2025",
-      card2Desc: "Author of the academic reference book \"Machine Learning for STEM Education: Adaptive Model in Alternative Schools\" indexed on Google Scholar.",
+      card2Desc:
+        'Author of the academic reference book "Machine Learning for STEM Education: Adaptive Model in Alternative Schools" indexed on Google Scholar.',
       card3Title: "Cross-Disciplinary",
       card3Sub: "Full-Cycle Delivery",
-      card3Desc: "Equipped to manage the full lifecycle from application code engineering, intelligent AI model architecture, to on-site IT network infrastructure (Pertamina & KAI).",
+      card3Desc:
+        "Equipped to manage the full lifecycle from application code engineering, intelligent AI model architecture, to on-site IT network infrastructure (Pertamina & KAI).",
       card4Title: "Research & Publications",
       card4Sub: "Google Scholar Verified",
-      card4Desc: "Actively publishing peer-reviewed research (4+ citations) across international digital economy journals, Zachman Enterprise Architecture, and intelligent network analytics.",
+      card4Desc:
+        "Actively publishing peer-reviewed research (4+ citations) across international digital economy journals, Zachman Enterprise Architecture, and intelligent network analytics.",
     },
     skills: {
       sectionTag: "TECH STACK & MATRIX",
-      sectionTitle: "Skills & Technologies",
-      sectionSubtitle: "Tools, programming frameworks, and specialized domain expertise I leverage daily.",
-      catAi: "Agentic AI & Deep Learning",
-      catFullstack: "Full-Stack Web & Mobile",
+      sectionTitle: "Skills & Career Interest",
+      sectionSubtitle:
+        "Technical skills, development tools, and career focus across software engineering and IT operations.",
+      careerInterestTitle: "Career Interest",
+      catAi: "Machine Learning & Agentic AI",
+      catFullstack: "Technical Skills (Fullstack & Backend)",
       catArch: "Database & Systems Architecture",
       catSupport: "IT Support & Network Engineering",
-      catTools: "UI/UX, Workflow & Research Tools",
+      catTools: "Development Tools & Workflow",
       flagshipBadge: "Flagship System: Ayunda AI (Multi-Agent + LSTM)",
       capabilitiesCount: "Specialized Capabilities",
     },
     projects: {
       sectionTag: "WORK & APPLICATION SHOWCASE",
       sectionTitle: "Featured Projects & Portfolio",
-      sectionSubtitle: "Selected software engineering systems, state-of-the-art AI models, and real-world web implementations.",
+      sectionSubtitle:
+        "Selected software engineering systems, state-of-the-art AI models, and real-world web implementations.",
       filterAll: "All Categories",
       filterAi: "Agentic AI & ML",
       filterWeb: "Fullstack & Enterprise",
@@ -233,7 +260,8 @@ export const translations = {
     experience: {
       sectionTag: "PROFESSIONAL CAREER",
       sectionTitle: "Experience & Education",
-      sectionSubtitle: "Proven track record in site operations, web engineering, corporate internships, and academia.",
+      sectionSubtitle:
+        "Proven track record in site operations, web engineering, corporate internships, and academia.",
       tabWork: "Work Experience & Internships",
       tabEdu: "Education & Academic",
       present: "Present",
@@ -243,7 +271,8 @@ export const translations = {
     journals: {
       sectionTag: "ACADEMIC PAPERS & BOOKS",
       sectionTitle: "Journal Publications & Books",
-      sectionSubtitle: "Peer-reviewed scientific journal articles, reference books, and indexed academic research papers on Google Scholar.",
+      sectionSubtitle:
+        "Peer-reviewed scientific journal articles, reference books, and indexed academic research papers on Google Scholar.",
       citedCount: "Citations",
       viewOnScholar: "View on Google Scholar",
       viewPublisher: "Open Publisher",
@@ -260,7 +289,8 @@ export const translations = {
     contact: {
       sectionTag: "LET'S CONNECT",
       sectionTitle: "Contact Me",
-      sectionSubtitle: "Interested in collaborating, discussing new opportunities, or building scalable systems? Send a message!",
+      sectionSubtitle:
+        "Interested in collaborating, discussing new opportunities, or building scalable systems? Send a message!",
       directContactTitle: "Direct Channels",
       formTitle: "Send a Quick Message",
       nameLabel: "Full Name",
@@ -279,10 +309,12 @@ export const translations = {
       submitBtn: "Send Message Now",
       submitting: "Sending Message...",
       successTitle: "Message Sent Successfully!",
-      successDesc: "Thank you for reaching out! I will reply to your email as soon as possible.",
+      successDesc:
+        "Thank you for reaching out! I will reply to your email as soon as possible.",
       sendAnother: "Send Another Message",
       location: "Cirebon, West Java, Indonesia",
-      statusNote: "Open for contract roles, fullstack web projects, AI engineering research, and enterprise systems consulting.",
+      statusNote:
+        "Open for contract roles, fullstack web projects, AI engineering research, and enterprise systems consulting.",
     },
     modal: {
       abstractTitle: "Abstract & Solution Summary",
@@ -294,11 +326,13 @@ export const translations = {
       closeBtn: "Close Modal",
     },
     footer: {
-      ticker: "✦ AGENTIC AI ✦ FULLSTACK DEVELOPER ✦ REINFORCEMENT LEARNING ✦ ZACHMAN FRAMEWORK ✦ LARAVEL & REACT ✦ IT SUPPORT & NETWORK ✦ UCIC CIREBON ✦",
-      bio: "Dwi Pasha Anggara Putra — Fullstack Developer & AI Engineer. Bridging intelligent systems, scalable web architecture, and reliable IT operations.",
+      ticker:
+        "✦ AGENTIC AI ✦ FULLSTACK DEVELOPER ✦ REINFORCEMENT LEARNING ✦ ZACHMAN FRAMEWORK ✦ LARAVEL & REACT ✦ IT SUPPORT & NETWORK ✦ UCIC CIREBON ✦",
+      bio: "Dwi Pasha Anggara Putra — Software Engineer. Building scalable web architecture, intelligent machine learning systems, and reliable IT operations.",
       rights: "All Rights Reserved.",
-      builtWith: "Crafted in Neo-Brutalist aesthetics with React, Tailwind CSS & Docker.",
+      builtWith:
+        "Crafted in Neo-Brutalist aesthetics with React, Tailwind CSS & Docker.",
       backToTop: "Back to Top",
-    }
-  }
+    },
+  },
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Heart, Linkedin, Github, BookOpen, Mail, Sparkles } from 'lucide-react';
+import { ArrowUp, Linkedin, Github, BookOpen, Mail } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { portfolioData } from '../../data/portfolioData';
 
@@ -11,91 +11,83 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-900 text-white border-t-[3.5px] border-slate-900 overflow-hidden relative">
-
-      {/* Main Footer Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between pb-10 border-b border-slate-800">
+    <footer className="bg-surface border-t-2 border-ink text-ink">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        {/* Main Footer Row */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b-2 border-ink">
           
-          {/* Brand Col (6 Cols) */}
-          <div className="md:col-span-6 space-y-3">
-            <span className="font-display font-black text-2xl text-white tracking-tight block">
+          {/* Brand + Tagline */}
+          <div className="space-y-1">
+            <span className="font-display font-black text-xl text-ink tracking-tight block">
               DWI PASHA
             </span>
-            
-            <p className="text-xs sm:text-sm text-slate-400 font-medium max-w-md leading-relaxed">
+            <p className="text-sm text-muted max-w-md">
               {t('footer.bio')}
             </p>
           </div>
 
-          {/* Social Links & Back To Top (6 Cols) */}
-          <div className="md:col-span-6 flex flex-wrap items-center justify-start md:justify-end gap-3">
-            
-            {/* LinkedIn */}
+          {/* Social Links & Back To Top */}
+          <div className="flex items-center gap-3">
             <a
               href={portfolioData.profile.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-800 hover:bg-brand-blue text-white border-2 border-slate-700 hover:border-white shadow-[2px_2px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+              className="p-2 rounded-lg bg-bg hover:bg-accent text-ink border-2 border-ink shadow-brutal-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-4 h-4" />
             </a>
 
-            {/* Google Scholar */}
             <a
               href={portfolioData.profile.scholarUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-800 hover:bg-accent-yellow hover:text-slate-900 text-white border-2 border-slate-700 hover:border-white shadow-[2px_2px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+              className="p-2 rounded-lg bg-bg hover:bg-accent text-ink border-2 border-ink shadow-brutal-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
               aria-label="Google Scholar"
             >
-              <BookOpen className="w-5 h-5" />
+              <BookOpen className="w-4 h-4" />
             </a>
 
-            {/* GitHub */}
             <a
               href={portfolioData.profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border-2 border-slate-700 hover:border-white shadow-[2px_2px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+              className="p-2 rounded-lg bg-bg hover:bg-accent text-ink border-2 border-ink shadow-brutal-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
               aria-label="GitHub"
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-4 h-4" />
             </a>
 
-            {/* Email */}
             <a
               href={`mailto:${portfolioData.profile.email}`}
-              className="p-2.5 rounded-xl bg-slate-800 hover:bg-emerald-600 text-white border-2 border-slate-700 hover:border-white shadow-[2px_2px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+              className="p-2 rounded-lg bg-bg hover:bg-accent text-ink border-2 border-ink shadow-brutal-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
               aria-label="Email"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-4 h-4" />
             </a>
 
-            {/* Back to Top Button */}
             <button
               type="button"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-accent-yellow text-slate-900 font-display font-black text-xs uppercase border-2 border-slate-900 shadow-[2px_2px_0px_#FFFFFF] hover:bg-white hover:translate-x-[1px] hover:translate-y-[1px] transition-all cursor-pointer ml-2"
+              className="p-2 rounded-lg bg-surface hover:bg-yellow-50 text-ink border-2 border-ink shadow-brutal-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all cursor-pointer ml-1"
+              aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />
-              <span>{t('footer.backToTop')}</span>
             </button>
-
           </div>
 
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 flex items-center justify-center sm:justify-between text-xs font-mono text-slate-500">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm font-mono text-muted">
           <p>
             © {new Date().getFullYear()} Dwi Pasha Anggara Putra. {t('footer.rights')}
           </p>
         </div>
 
       </div>
-
     </footer>
   );
 };
+

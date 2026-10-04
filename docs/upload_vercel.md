@@ -55,14 +55,35 @@ Metode ini paling mudah dan otomatis melakukan pembaruan (auto-deploy) setiap ka
 
 ---
 
-### Langkah 3: Mengatur Nama Domain (dwipasha.vercel.app)
+### Langkah 3: Mengatur Nama Domain & Custom Domain
 
-1. Masuk ke halaman **Project Settings** di Vercel.
-2. Pilih menu **Domains** di sidebar kiri.
-3. Cek domain yang terdaftar. Jika ingin mengubah menjadi `dwipasha.vercel.app`:
-   - Klik **Edit** atau masukkan `dwipasha.vercel.app` pada form domain.
-   - Klik **Add**.
-   - *(Jika nama domain masih tersedia, URL akan langsung aktif).*
+#### A. Menggunakan Subdomain Vercel Gratis
+1. Masuk ke **Project Settings** di Vercel > **Domains**.
+2. Masukkan nama yang diinginkan, misal `dwipasha.vercel.app` > Klik **Add**.
+
+---
+
+#### B. Menghubungkan Custom Domain Pribadi (`ayunda.cloud` atau `dwipasha.ayunda.cloud`)
+
+Jika Anda memiliki domain **`ayunda.cloud`**:
+
+##### 🔹 Opsi 1: Menggunakan Subdomain `dwipasha.ayunda.cloud` (Rekomendasi jika domain utama dipakai proyek lain)
+1. Di Dashboard Vercel > **Project Settings** > **Domains** > Masukkan `dwipasha.ayunda.cloud` > Klik **Add**.
+2. Buka panel DNS tempat Anda membeli domain (Cloudflare / Niagahoster / DomaiNesia / Namecheap, dll).
+3. Tambahkan DNS Record baru:
+   | Type | Name / Host | Target / Value | TTL | Proxy Status (Jika Cloudflare) |
+   | :--- | :--- | :--- | :--- | :--- |
+   | **CNAME** | `dwipasha` | `cname.vercel-dns.com` | Auto / 3600 | DNS Only (Grey Cloud) |
+
+##### 🔹 Opsi 2: Menggunakan Domain Utama `ayunda.cloud` & `www.ayunda.cloud`
+1. Di Dashboard Vercel > **Project Settings** > **Domains** > Masukkan `ayunda.cloud` > Klik **Add** (Vercel akan otomatis menyarankan penambahan `www.ayunda.cloud`).
+2. Masuk ke DNS Manager domain Anda dan tambahkan 2 record berikut:
+   | Type | Name / Host | Target / Value | TTL |
+   | :--- | :--- | :--- | :--- |
+   | **A Record** | `@` (root) | `76.76.21.21` | Auto / 3600 |
+   | **CNAME** | `www` | `cname.vercel-dns.com` | Auto / 3600 |
+
+> 💡 **Catatan:** Setelah DNS record ditambahkan, Vercel akan otomatis memverifikasi dan menerbitkan sertifikat **SSL (HTTPS)** gratis dalam waktu 1-5 menit.
 
 ---
 

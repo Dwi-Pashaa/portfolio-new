@@ -1,115 +1,126 @@
 import React from 'react';
-import { Cpu, Code2, Layers, Network, CheckCircle, Sparkles } from 'lucide-react';
+import { Cpu, Code2, Layers, Wrench, Server, Network, Briefcase, Terminal } from 'lucide-react';
 import { SectionHeader } from '../common/SectionHeader';
-import { PillBadge } from '../common/PillBadge';
 import { useLanguage } from '../../context/LanguageContext';
 import { portfolioData } from '../../data/portfolioData';
 
-const iconMap = {
-  Cpu: Cpu,
-  Code2: Code2,
-  Layers: Layers,
-  Network: Network,
-};
-
 export const Skills = () => {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   return (
-    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t-2 border-ink">
+      <div className="max-w-[1100px] mx-auto space-y-10">
         
         {/* Section Header */}
         <SectionHeader
-          tag={t('skills.sectionTag')}
           title={t('skills.sectionTitle')}
-          highlight="Matrix & Stack"
           subtitle={t('skills.sectionSubtitle')}
           align="center"
         />
 
-        {/* 4-Pillar Bento Matrix */}
+        {/* Career Interest Card */}
+        {portfolioData.careerInterests && (
+          <div className="bg-surface border-2 border-ink rounded-xl p-6 shadow-brutal flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 bg-accent rounded-lg border-2 border-ink shadow-[1px_1px_0_#111111]">
+                <Briefcase className="w-5 h-5 text-ink" />
+              </div>
+              <div>
+                <h3 className="font-display font-black text-lg text-ink">
+                  {t('skills.careerInterestTitle') || 'Career Interest'}
+                </h3>
+                <p className="text-xs font-mono text-muted">
+                  {language === 'id' ? 'Fokus peran profesional yang diminati' : 'Targeted professional roles'}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5">
+              {portfolioData.careerInterests.map((interest) => (
+                <span
+                  key={interest.id}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-ink text-sm font-display font-bold text-ink shadow-[2px_2px_0_#111111] ${interest.color}`}
+                >
+                  {interest.id === 'fullstack' && <Code2 className="w-4 h-4 text-brand-blue" />}
+                  {interest.id === 'backend' && <Server className="w-4 h-4 text-amber-600" />}
+                  {interest.id === 'support' && <Wrench className="w-4 h-4 text-emerald-600" />}
+                  <span>{interest.label}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 4 Rich Skill & Tools Groups */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {portfolioData.skills.map((categoryGroup, index) => {
-            const IconComponent = iconMap[categoryGroup.icon] || Code2;
             const title = t(categoryGroup.titleKey);
+            
+            const groupTheme = 
+              categoryGroup.category === 'fullstack' ? { 
+                badge: 'bg-brand-blue-light', 
+                border: 'border-ink', 
+                headerBg: 'bg-blue-50',
+                chipBg: 'bg-white hover:bg-blue-100',
+                IconComponent: Code2,
+                iconColor: 'text-brand-blue'
+              } :
+              categoryGroup.category === 'tools' ? { 
+                badge: 'bg-accent-yellow-light', 
+                border: 'border-ink', 
+                headerBg: 'bg-amber-50',
+                chipBg: 'bg-white hover:bg-amber-100',
+                IconComponent: Wrench,
+                iconColor: 'text-amber-600'
+              } :
+              categoryGroup.category === 'ai' ? { 
+                badge: 'bg-accent-coral-light', 
+                border: 'border-ink', 
+                headerBg: 'bg-rose-50',
+                chipBg: 'bg-white hover:bg-rose-100',
+                IconComponent: Cpu,
+                iconColor: 'text-accent-coral'
+              } :
+              { 
+                badge: 'bg-accent-mint-light', 
+                border: 'border-ink', 
+                headerBg: 'bg-emerald-50',
+                chipBg: 'bg-white hover:bg-emerald-100',
+                IconComponent: Network,
+                iconColor: 'text-emerald-600'
+              };
+
+            const Icon = groupTheme.IconComponent;
 
             return (
               <div
                 key={index}
-                className={`bg-white border-[3.5px] border-slate-900 rounded-3xl p-6 sm:p-7 shadow-brutal hover:shadow-brutal-xl transition-all duration-200 flex flex-col justify-between relative overflow-hidden`}
+                className="bg-surface border-2 border-ink rounded-xl overflow-hidden shadow-brutal hover:-translate-y-1 transition-transform"
               >
-                {/* Category Header */}
-                <div>
-                  <div className="flex items-center justify-between pb-4 mb-5 border-b-2 border-slate-900">
-                    <div className="flex items-center gap-3">
-                      <div className={`p-3 rounded-2xl ${categoryGroup.color} border-2 border-slate-900 shadow-[2px_2px_0px_#0F172A]`}>
-                        <IconComponent className="w-6 h-6 text-slate-900" />
-                      </div>
-                      <div>
-                        <h3 className="font-display font-black text-lg sm:text-xl text-slate-900">
-                          {title}
-                        </h3>
-                        <span className="text-xs font-mono font-bold text-slate-500 uppercase">
-                          {categoryGroup.skills.length} {t('skills.capabilitiesCount')}
-                        </span>
-                      </div>
-                    </div>
+                {/* Group Header Banner */}
+                <div className={`flex items-center justify-between p-4 sm:p-5 border-b-2 border-ink ${groupTheme.headerBg}`}>
+                  <div className="flex items-center gap-2.5">
+                    <Icon className={`w-5 h-5 ${groupTheme.iconColor}`} />
+                    <h3 className="font-display font-black text-lg sm:text-xl text-ink">
+                      {title}
+                    </h3>
                   </div>
-
-                  {/* Skills Grid with Badges & Descriptions */}
-                  <div className="space-y-3.5">
-                    {categoryGroup.skills.map((skill, skillIdx) => (
-                      <div
-                        key={skillIdx}
-                        className="p-3 bg-slate-50 hover:bg-yellow-50/70 border-2 border-slate-900 rounded-xl transition-colors shadow-[2px_2px_0px_#0F172A] flex items-center justify-between gap-3"
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                          <div>
-                            <h4 className="text-xs sm:text-sm font-display font-bold text-slate-900 leading-tight">
-                              {skill.name}
-                            </h4>
-                            <p className="text-[11px] font-mono text-slate-500">
-                              {skill.desc}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Skill Proficiency Bar / Metric */}
-                        <div className="hidden sm:flex flex-col items-end shrink-0 w-24">
-                          <span className="text-[11px] font-mono font-black text-slate-900">
-                            {skill.level}%
-                          </span>
-                          <div className="w-full bg-slate-200 h-2 rounded-full border border-slate-900 overflow-hidden mt-0.5">
-                            <div
-                              className={`h-full ${
-                                categoryGroup.category === 'ai'
-                                  ? 'bg-accent-coral'
-                                  : categoryGroup.category === 'fullstack'
-                                  ? 'bg-brand-blue'
-                                  : categoryGroup.category === 'architecture'
-                                  ? 'bg-accent-purple'
-                                  : 'bg-accent-yellow'
-                              }`}
-                              style={{ width: `${skill.level}%` }}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <span className={`px-2.5 py-0.5 rounded-full border-2 border-ink text-xs font-mono font-bold text-ink shadow-[1px_1px_0_#111111] ${groupTheme.badge}`}>
+                    {categoryGroup.skills.length} {categoryGroup.category === 'tools' ? 'tools' : 'skills'}
+                  </span>
                 </div>
 
-                {/* Flagship Badge if AI */}
-                {categoryGroup.category === 'ai' && (
-                  <div className="mt-5 p-3 bg-accent-coral-light border-2 border-slate-900 rounded-xl flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-accent-coral shrink-0" />
-                    <p className="text-xs font-mono font-bold text-slate-900">
-                      {t('skills.flagshipBadge')}
-                    </p>
-                  </div>
-                )}
+                {/* Skill Chips */}
+                <div className="p-5 sm:p-6 flex flex-wrap gap-2.5">
+                  {categoryGroup.skills.map((skill, skillIdx) => (
+                    <span
+                      key={skillIdx}
+                      className={`inline-flex items-center border-2 border-ink rounded-full px-3.5 py-1.5 text-sm font-bold text-ink ${groupTheme.chipBg} transition-colors select-none shadow-[2px_2px_0_#111111] cursor-default`}
+                    >
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
               </div>
             );
           })}
@@ -119,3 +130,4 @@ export const Skills = () => {
     </section>
   );
 };
+

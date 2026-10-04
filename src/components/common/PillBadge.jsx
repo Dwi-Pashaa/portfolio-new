@@ -3,22 +3,22 @@ import React from 'react';
 export const PillBadge = ({
   children,
   icon,
-  color = 'bg-brand-blue-light text-brand-blue-dark',
-  borderColor = 'border-slate-900',
+  color = 'bg-surface text-ink',
+  borderColor = 'border-ink',
   size = 'md', // sm | md | lg
-  shadow = 'shadow-[2px_2px_0px_#0F172A]',
+  shadow = 'shadow-none',
   className = '',
   ...props
 }) => {
   const sizeStyles = {
-    sm: "px-2.5 py-0.5 text-[11px] gap-1 border-[1.5px]",
-    md: "px-3 py-1 text-xs gap-1.5 border-2",
-    lg: "px-4 py-1.5 text-sm gap-2 border-[2.5px]",
+    sm: "px-3 py-1 text-sm gap-1.5 border-2",
+    md: "px-3.5 py-1.5 text-sm gap-2 border-2",
+    lg: "px-4 py-2 text-base gap-2 border-2",
   };
 
   return (
     <span
-      className={`inline-flex items-center font-display font-bold uppercase tracking-wider rounded-full ${sizeStyles[size]} ${color} ${borderColor} ${shadow} ${className}`}
+      className={`inline-flex items-center font-display font-bold rounded-full ${sizeStyles[size] || sizeStyles.md} ${color} ${borderColor} ${shadow} ${className}`}
       {...props}
     >
       {icon && <span className="shrink-0">{icon}</span>}
@@ -26,3 +26,4 @@ export const PillBadge = ({
     </span>
   );
 };
+
